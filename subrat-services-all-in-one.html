@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUBRAT SERVICES — Free Views Hub</title>
+<style>
+  :root{
+    --bg: #0a0a0d;
+    --card: #17171c;
+    --red: #ff2d4d;
+    --text: #f4f4f6;
+    --muted: #8a8a94;
+    --border: #262630;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding: 40px 18px 60px;
+  }
+  .glow{
+    position:fixed; top:-120px; left:50%;
+    transform:translateX(-50%);
+    width:600px; height:400px;
+    filter: blur(10px);
+    z-index:0; pointer-events:none;
+    transition: background .3s ease;
+  }
+  .glow.home{ background: radial-gradient(circle, rgba(255,45,77,0.18), transparent 70%); }
+  .glow.ig{ background: radial-gradient(circle, rgba(221,42,123,0.18), transparent 70%); }
+  .glow.yt{ background: radial-gradient(circle, rgba(255,0,0,0.18), transparent 70%); }
+  .glow.tg{ background: radial-gradient(circle, rgba(34,158,217,0.18), transparent 70%); }
+
+  .page{ display:none; width:100%; max-width:420px; position:relative; z-index:1; }
+  .page.active{ display:flex; flex-direction:column; align-items:center; }
+
+  .brand{ text-align:center; margin-bottom:6px; }
+  .brand h1{ font-size: 28px; letter-spacing: 1px; font-weight: 800; }
+  .brand h1 span{ color: var(--red); }
+  .brand p{ color: var(--muted); font-size: 13px; margin-top:4px; letter-spacing: 2px; text-transform: uppercase; }
+
+  .status{
+    display:flex; align-items:center; gap:8px;
+    margin: 18px 0 34px; font-size: 12px; color: #4ade80;
+    background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.25);
+    padding: 6px 14px; border-radius: 20px;
+  }
+  .status .dot{ width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow: 0 0 8px #4ade80; }
+
+  .platforms, .services{ width:100%; display:flex; flex-direction:column; gap: 12px; }
+
+  .plat-btn, .service-btn{
+    display:flex; align-items:center; gap: 14px; width:100%;
+    padding: 18px 20px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; color: var(--text); font-size: 16px; font-weight: 700;
+    text-decoration:none; transition: all .2s ease; cursor:pointer;
+  }
+  .plat-btn:hover, .service-btn:hover{ border-color: var(--red); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,45,77,0.15); }
+  .plat-btn .icon, .service-btn .icon{ width: 40px; height:40px; border-radius: 11px; display:flex; align-items:center; justify-content:center; font-size: 19px; flex-shrink:0; background:#22222a; }
+  .plat-btn .arrow, .service-btn .arrow{ margin-left:auto; color: var(--muted); font-size: 18px; }
+  .ig-icon{ background: linear-gradient(135deg,#f58529,#dd2a7b,#8134af) !important; }
+  .yt-icon{ background: #ff0000 !important; }
+  .tg-icon{ background: #229ED9 !important; }
+
+  .topbar{ width:100%; display:flex; align-items:center; gap:12px; margin-bottom:26px; }
+  .back{ color:var(--muted); text-decoration:none; font-size:22px; padding:6px 10px; border:1px solid var(--border); border-radius:10px; cursor:pointer; background:none; }
+  .back:hover{ border-color:var(--red); color:var(--text); }
+  .topbar h1{ font-size:20px; font-weight:800; }
+
+  .footer-note{ text-align:center; margin-top: 40px; font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .footer-note b{ color: var(--text); }
+</style>
+</head>
+<body>
+
+  <div class="glow home" id="glow"></div>
+
+  <!-- HOMEPAGE -->
+  <div class="page active" id="page-home">
+    <div class="brand">
+      <h1>SUBRAT <span>SERVICES</span></h1>
+      <p>Free Views &middot; Likes &middot; Followers Hub</p>
+    </div>
+    <div class="status"><span class="dot"></span> All services online</div>
+
+    <div class="platforms">
+      <a class="plat-btn" onclick="showPage('ig')">
+        <span class="icon ig-icon">📷</span> Instagram
+        <span class="arrow">›</span>
+      </a>
+      <a class="plat-btn" onclick="showPage('yt')">
+        <span class="icon yt-icon">▶</span> YouTube
+        <span class="arrow">›</span>
+      </a>
+      <a class="plat-btn" onclick="showPage('tg')">
+        <span class="icon tg-icon">✈</span> Telegram
+        <span class="arrow">›</span>
+      </a>
+    </div>
+
+    <div class="footer-note">
+      <b>Fully Trusted WebApp</b> — By Subrat Playz<br>
+      Any problem? Contact owner on WhatsApp
+    </div>
+  </div>
+
+  <!-- INSTAGRAM PAGE -->
+  <div class="page" id="page-ig">
+    <div class="topbar">
+      <button class="back" onclick="showPage('home')">←</button>
+      <h1>📷 Instagram Services</h1>
+    </div>
+    <div class="services">
+      <a class="service-btn" href="https://your-link-here.com/ig-views" target="_blank">
+        <span class="icon">👁</span> IG Free Views <span class="arrow">›</span>
+      </a>
+      <a class="service-btn" href="https://your-link-here.com/ig-likes" target="_blank">
+        <span class="icon">❤️</span> IG Free Likes <span class="arrow">›</span>
+      </a>
+      <a class="service-btn" href="https://your-link-here.com/ig-followers" target="_blank">
+        <span class="icon">👥</span> IG Free Followers <span class="arrow">›</span>
+      </a>
+      <a class="service-btn" href="https://your-link-here.com/ig-story-views" target="_blank">
+        <span class="icon">📖</span> IG Free Story Views <span class="arrow">›</span>
+      </a>
+    </div>
+    <div class="footer-note"><b>Fully Trusted WebApp</b> — By Subrat Playz</div>
+  </div>
+
+  <!-- YOUTUBE PAGE -->
+  <div class="page" id="page-yt">
+    <div class="topbar">
+      <button class="back" onclick="showPage('home')">←</button>
+      <h1>▶ YouTube Services</h1>
+    </div>
+    <div class="services">
+      <a class="service-btn" href="https://your-link-here.com/yt-views" target="_blank">
+        <span class="icon">👁</span> YT Free Views <span class="arrow">›</span>
+      </a>
+      <a class="service-btn" href="https://your-link-here.com/yt-likes" target="_blank">
+        <span class="icon">❤️</span> YT Free Likes <span class="arrow">›</span>
+      </a>
+      <a class="service-btn" href="https://your-link-here.com/yt-subscribers" target="_blank">
+        <span class="icon">👥</span> YT Free Subscribers <span class="arrow">›</span>
+      </a>
+    </div>
+    <div class="footer-note"><b>Fully Trusted WebApp</b> — By Subrat Playz</div>
+  </div>
+
+  <!-- TELEGRAM PAGE -->
+  <div class="page" id="page-tg">
+    <div class="topbar">
+      <button class="back" onclick="showPage('home')">←</button>
+      <h1>✈ Telegram Services</h1>
+    </div>
+    <div class="services">
+      <a class="service-btn" href="https://your-link-here.com/tg-views" target="_blank">
+        <span class="icon">👁</span> TG Free Views <span class="arrow">›</span>
+      </a>
+      <a class="service-btn" href="https://your-link-here.com/tg-members" target="_blank">
+        <span class="icon">👥</span> TG Free Members <span class="arrow">›</span>
+      </a>
+      <a class="service-btn" href="https://your-link-here.com/tg-reactions" target="_blank">
+        <span class="icon">❤️</span> TG Free Reactions <span class="arrow">›</span>
+      </a>
+    </div>
+    <div class="footer-note"><b>Fully Trusted WebApp</b> — By Subrat Playz</div>
+  </div>
+
+<script>
+  function showPage(name){
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+
+    const glow = document.getElementById('glow');
+    glow.className = 'glow ' + name;
+
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+</script>
+
+</body>
+</html>
